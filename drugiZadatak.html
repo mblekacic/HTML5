@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drugi zadatak</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    
+}
+
+    </style>
+</head>
+<body>
+    <p>Napravi odlomak koji nestaje i pojavljuje se u beskonacnosti. Napravi naslov koji nestaje. Dodaj metodu slide samo na drugom odlomku!</p>
+    <h1 id ="naslov" >Lorem ipsum dolor sit amet.</h1>
+    <p id ="odlomak1" >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic eum ipsum nesciunt.</p>
+    <p id ="odlomak2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero dignissimos harum voluptatem numquam excepturi consequuntur. Facilis nemo deleniti pariatur ipsam!</p>
+    <button  id="toggleButton">Sakrij odlomak</button>
+</body>
+<script>
+  $(document).ready(function() {
+    function fadeLoop() {
+        $('#odlomak1').fadeOut(2000, function() {
+            $(this).fadeIn(2000, fadeLoop);
+        });
+    }
+    fadeLoop(); 
+   
+    $('#naslov').hover( function() {
+            $(this).fadeOut(5000);
+        });
+
+    $('#toggleButton').click(function() {
+        $('#odlomak2').slideToggle(1000);
+    });
+
+});
+</script>
+</html>
